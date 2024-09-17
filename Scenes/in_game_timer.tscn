@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5nqyaj2qx1ua"]
+
+[ext_resource type="FontVariation" uid="uid://taqfhqkhufqn" path="res://alchemist's_font.tres" id="1_e1hvw"]
+[ext_resource type="Script" path="res://Scripts/GameTimer.gd" id="2_gpjtr"]
+
+[sub_resource type="Theme" id="Theme_3xq7i"]
+default_font = ExtResource("1_e1hvw")
+default_font_size = 34
+/colors/default_color = Color(0.290196, 0.25098, 0.192157, 1)
+
+[node name="InGameTimer" type="RichTextLabel"]
+offset_left = 510.0
+offset_top = 54.0
+offset_right = 789.0
+offset_bottom = 94.0
+theme = SubResource("Theme_3xq7i")
+theme_override_colors/default_color = Color(0.29, 0.25056, 0.1914, 1)
+text = "60:60:99"
+scroll_active = false
+shortcut_keys_enabled = false
+text_direction = 2
+script = ExtResource("2_gpjtr")

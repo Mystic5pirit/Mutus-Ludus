@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm6cntol85mxs"]
+
+[ext_resource type="Texture2D" uid="uid://c7x0yjdwn6ti3" path="res://Tutorial/TutorialCannon.png" id="1_hh8vh"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_s3aiw"]
+[ext_resource type="PackedScene" uid="uid://c6c6mukcqb3i0" path="res://Tutorial/tutorial_bullet.tscn" id="3_i4v2b"]
+[ext_resource type="Script" path="res://Scripts/EnemyBulletShooter.gd" id="4_3cu0l"]
+[ext_resource type="Script" path="res://Scripts/EnemyInkDropper.gd" id="6_d1yq7"]
+[ext_resource type="Script" path="res://Scripts/EnemyBulletDetection.gd" id="7_e80d8"]
+[ext_resource type="Script" path="res://Scripts/EnemyHealthTracker.gd" id="8_jasf4"]
+
+[node name="Cannon" type="Node2D" node_paths=PackedStringArray("EnemyBulletShooter")]
+script = ExtResource("1_s3aiw")
+EnemyBulletShooter = NodePath("BodyParts/Body/EnemyBulletShooter")
+
+[node name="BodyParts" type="Node2D" parent="."]
+scale = Vector2(0.29, 0.29)
+
+[node name="BodyShadow" type="Sprite2D" parent="BodyParts"]
+modulate = Color(0, 0, 0, 0.501961)
+position = Vector2(24.4105, 29.2927)
+scale = Vector2(1, 1)
+texture = ExtResource("1_hh8vh")
+
+[node name="Body" type="Sprite2D" parent="BodyParts"]
+texture = ExtResource("1_hh8vh")
+
+[node name="EnemyBulletShooter" type="Node2D" parent="BodyParts/Body" node_paths=PackedStringArray("target")]
+position = Vector2(-108.91, -24.3162)
+script = ExtResource("4_3cu0l")
+bullet = ExtResource("3_i4v2b")
+target = NodePath("../EnemyBulletTarget")
+bullet_damage = 0.5
+
+[node name="InkDropSpot" type="Node2D" parent="BodyParts/Body" node_paths=PackedStringArray("enemy_bullet_detection")]
+position = Vector2(105.253, 118.163)
+script = ExtResource("6_d1yq7")
+enemy_bullet_detection = NodePath("../../EnemyBulletDetection")
+
+[node name="EnemyBulletTarget" type="Node2D" parent="BodyParts/Body"]
+position = Vector2(-159.147, -22.7072)
+
+[node name="ColliderRemote" type="RemoteTransform2D" parent="BodyParts/Body"]
+remote_path = NodePath("../../EnemyBulletDetection/CollisionPolygon2D")
+
+[node name="ShadowRemote" type="RemoteTransform2D" parent="BodyParts/Body"]
+position = Vector2(24.4105, 29.2927)
+remote_path = NodePath("../../BodyShadow")
+
+[node name="EnemyBulletDetection" type="Area2D" parent="BodyParts"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("7_e80d8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BodyParts/EnemyBulletDetection"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-64.5, -119.2, -64.5, -117.7, -48.6, -100, -29.8, -100, 7.10001, -116, 11.1, -116, 30.3, -120, 50.2, -120, 59.2, -123, 110.5, -123, 110.5, -121.7, 124.5, -118.6, 124.5, -117.3, 151.5, -105.3, 151.5, -103.8, 172.5, -80.8, 172.5, -78.7, 173.5, -77.4, 173.5, 20, 172.8, 20, 165.5, 37.3, 165.5, 43.2, 163.1, 54, 161.6, 54, 155.5, 64.5, 155.5, 75.2, 150.1, 97, 148.7, 97, 141.7, 111, 140.2, 111, 123.5, 126, 32.2, 126, 18.5, 121.4, 18.5, 120.2, -8.5, 106.2, -8.5, 104.9, -17.5, 96.9, -17.5, 94.5, -20.9, 86, -31, 79, -49.1, 79, -89.2, 93, -108.7, 93, -129.5, 88.6, -129.5, 87.2, -143.5, 80.2, -143.5, 78.7, -161.5, 56.7, -161.5, 52.4, -168.5, 14.2, -168.5, -12, -173.5, -25.7, -173.5, -71.7, -167.8, -85, -166.3, -85, -159.5, -91.8, -159.5, -99.5, -151.7, -115, -150.3, -115, -143.3, -122, -140.9, -122, -130.5, -126, -78.1, -126)
+
+[node name="EnemyHealthTracker" type="Node" parent="." node_paths=PackedStringArray("sprite", "enemy_bullet_detection")]
+script = ExtResource("8_jasf4")
+sprite = NodePath("../BodyParts/Body")
+enemy_bullet_detection = NodePath("../BodyParts/EnemyBulletDetection")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="BodyParts/EnemyBulletDetection" to="BodyParts/EnemyBulletDetection" method="_on_body_entered"]

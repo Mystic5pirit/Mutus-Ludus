@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b73pyc4me06in"]
+
+[ext_resource type="Script" path="res://Scripts/Button.gd" id="1_fcmxd"]
+[ext_resource type="Texture2D" uid="uid://dstgkgb7xccwb" path="res://AssortedArt/Button.png" id="2_wonwr"]
+[ext_resource type="FontVariation" uid="uid://taqfhqkhufqn" path="res://alchemist's_font.tres" id="3_ymaak"]
+
+[sub_resource type="Theme" id="Theme_80jmv"]
+default_font = ExtResource("3_ymaak")
+default_font_size = 52
+
+[node name="Button" type="Node2D"]
+position = Vector2(431.313, 575.682)
+script = ExtResource("1_fcmxd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 10
+offset_left = -192.773
+offset_top = -30.9224
+offset_right = 247.227
+offset_bottom = 39.0776
+theme = SubResource("Theme_80jmv")
+theme_override_colors/default_color = Color(0.290196, 0.25098, 0.192157, 1)
+bbcode_enabled = true
+text = "[center]TUTORIAL"
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -244.773
+offset_top = -63.9224
+offset_right = 291.227
+offset_bottom = 67.0776
+texture_normal = ExtResource("2_wonwr")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
+modulate = Color(0, 0, 0, 0.5)
+z_index = -10
+position = Vector2(278, 77)
+texture = ExtResource("2_wonwr")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://yl8sq0m8oic3"]
+
+[ext_resource type="Script" path="res://Scripts/escape_screen.gd" id="1_hnswx"]
+[ext_resource type="PackedScene" uid="uid://b73pyc4me06in" path="res://Scenes/button.tscn" id="1_t60hc"]
+
+[node name="EscapeScreen" type="Node2D"]
+process_mode = 3
+visible = false
+script = ExtResource("1_hnswx")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.5, 0.5, 0.509804)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Button" parent="CanvasLayer" instance=ExtResource("1_t60hc")]
+process_mode = 2
+position = Vector2(391.23, 268.919)
+text = "RESUME"
+
+[node name="Button2" parent="CanvasLayer" instance=ExtResource("1_t60hc")]
+process_mode = 2
+position = Vector2(404.444, 646.469)
+text = "NO SETTINGS"
+
+[connection signal="button_pressed" from="CanvasLayer/Button" to="." method="_on_button_button_pressed"]

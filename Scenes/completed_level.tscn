@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnmvswwb8y78g"]
+
+[ext_resource type="Script" path="res://Scripts/CompletedLevel.gd" id="1_n5i5g"]
+[ext_resource type="PackedScene" uid="uid://b73pyc4me06in" path="res://Scenes/button.tscn" id="1_nwmwm"]
+
+[node name="CompletedLevel" type="Node2D"]
+process_mode = 3
+visible = false
+script = ExtResource("1_n5i5g")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.5, 0.5, 0.509804)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="NextLevelButton" parent="CanvasLayer" instance=ExtResource("1_nwmwm")]
+process_mode = 2
+modulate = Color(0.352941, 0.392157, 0.501961, 1)
+position = Vector2(394.798, 352.163)
+rotation = 0.0824413
+text = "[s] NEXT LEVEL "
+
+[node name="MainMenuButton" parent="CanvasLayer" instance=ExtResource("1_nwmwm")]
+process_mode = 2
+position = Vector2(378.149, 670.871)
+rotation = -0.0914025
+y_time_offset = 1.0
+text = "MAIN MENU"
+
+[connection signal="button_pressed" from="CanvasLayer/NextLevelButton" to="." method="_on_next_level_button_button_pressed"]
+[connection signal="button_pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_button_pressed"]

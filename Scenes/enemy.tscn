@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7834mv8v4utj"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyHealthTracker.gd" id="1_ehdlt"]
+[ext_resource type="Texture2D" uid="uid://b1lv7c83lfa6v" path="res://Level 1/TopAngel/body.png" id="2_b27m8"]
+[ext_resource type="Texture2D" uid="uid://lrcdmex0rlgc" path="res://Level 1/TopAngel/left-wing.png" id="3_bxmln"]
+[ext_resource type="Texture2D" uid="uid://bciag7arkadkd" path="res://Level 1/TopAngel/right_wing.png" id="4_mrvy3"]
+[ext_resource type="Script" path="res://Scripts/EnemyBulletShooter.gd" id="5_myrpx"]
+[ext_resource type="PackedScene" uid="uid://buere3y5tga5y" path="res://Scenes/music_note.tscn" id="6_r46me"]
+[ext_resource type="Script" path="res://Scripts/EnemyInkDropper.gd" id="7_o5307"]
+[ext_resource type="Script" path="res://Scripts/EnemyBulletDetection.gd" id="8_hex2r"]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="BodyParts" type="Node2D" parent="."]
+scale = Vector2(0.29, 0.29)
+
+[node name="BodyShadow" type="Sprite2D" parent="BodyParts"]
+modulate = Color(0, 0, 0, 0.501961)
+position = Vector2(-3.586, 125.341)
+texture = ExtResource("2_b27m8")
+
+[node name="LeftWingPivot" type="Node2D" parent="BodyParts"]
+position = Vector2(-51.0791, -39.6471)
+
+[node name="LeftWingShadow" type="Sprite2D" parent="BodyParts/LeftWingPivot"]
+modulate = Color(0, 0, 0, 0.5)
+position = Vector2(-258.283, -84.49)
+texture = ExtResource("3_bxmln")
+
+[node name="LeftWing" type="Sprite2D" parent="BodyParts/LeftWingPivot"]
+position = Vector2(-238.283, -94.4901)
+texture = ExtResource("3_bxmln")
+
+[node name="RightWingPivot" type="Node2D" parent="BodyParts"]
+position = Vector2(53.7465, -27.6403)
+
+[node name="RightWingShadow" type="Sprite2D" parent="BodyParts/RightWingPivot"]
+modulate = Color(0, 0, 0, 0.501961)
+position = Vector2(252.299, -96.744)
+texture = ExtResource("4_mrvy3")
+
+[node name="RightWing" type="Sprite2D" parent="BodyParts/RightWingPivot"]
+position = Vector2(232.299, -106.744)
+texture = ExtResource("4_mrvy3")
+
+[node name="Body" type="Sprite2D" parent="BodyParts"]
+position = Vector2(-23.5855, 115.341)
+texture = ExtResource("2_b27m8")
+
+[node name="EnemyBulletShooter" type="Node2D" parent="BodyParts/Body"]
+position = Vector2(118.679, 269.91)
+script = ExtResource("5_myrpx")
+bullet = ExtResource("6_r46me")
+
+[node name="InkDropSpot" type="Node2D" parent="BodyParts/Body"]
+position = Vector2(23.2383, 270.915)
+script = ExtResource("7_o5307")
+
+[node name="EnemyBulletTarget" type="Node2D" parent="BodyParts/Body"]
+position = Vector2(144.306, 336.105)
+
+[node name="EnemyBulletDetection" type="Area2D" parent="BodyParts"]
+visible = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("8_hex2r")
+
+[node name="BodyCollider" type="CollisionPolygon2D" parent="BodyParts/EnemyBulletDetection"]
+position = Vector2(-23.5855, 115.341)
+polygon = PackedVector2Array(79, -299.7, 79, -298, 91, -289, 91, -286.7, 103, -272.7, 103, -269.4, 106.4, -261, 118, -250.9, 118, -237.8, 116.5, -232, 117, -225, 122, -216.5, 122, -207.9, 120.7, -199, 119, -199, 106, -182.3, 106, -180.7, 104.4, -175.4, 116, -165.9, 116, -163.5, 132, -140.6, 132, -137.4, 143.7, -72, 144.3, -72, 152, -55.4, 152, -51, 154.3, -34, 152.8, -34, 147.8, 24, 146.8, 24, 145.8, 33, 143.8, 33, 142, 34.8, 142, 55, 140.7, 55, 135.7, 82, 134, 82, 124, 94.7, 124, 101.1, 121.9, 130, 120.3, 130, 116.8, 137, 126.4, 162, 127.1, 162, 148, 193.4, 148, 196.7, 151.4, 207, 178, 229.1, 178, 231.5, 179, 233.1, 179, 275.8, 174.3, 286, 173, 286, 165, 296, 162.5, 296, 145.7, 304, 84.8, 304, 70, 295.1, 70, 291.4, 64.8, 276.6, 59.6, 280, 54.2, 280, 29, 282.2, 29, 280.4, 15, 275.4, 15, 273.9, 9, 268.9, 9, 266.3, 6, 259.4, 6, 249.5, 19, 226.5, 16, 208.2, 16, 203.9, 17.7, 190, 15.2, 169, 14.6, 169, 14, 167.5, 14, 178, 12, 178, 6, 186, 2.60001, 186, -8.5, 192, -10.1, 192, -31, 190.9, -31, 188.8, -45, 174.8, -45, 172.3, -49.4, 157.2, -61, 159.4, -61, 157.5, -64, 156.6, -93, 162.4, -93, 160.7, -119, 155.7, -119, 154.1, -128, 148.1, -128, 145.7, -133.1, 138, -137.4, 138, -157, 129.3, -157, 127.9, -168, 115.8, -168, 113.6, -179, 93.2, -179, 54.9, -160.4, 5, -158.9, 5, -152.9, -2, -150.4, -2, -144, -4.39999, -128.9, -21, -125.1, -21, -106, -26.5, -106, -27.6, -101, -34.6, -101, -39.1, -98.8, -65, -97.5, -65, -83.5, -114, -82.2, -114, -65, -147.5, -65, -150.4, -52.3, -181, -50.9, -181, -41, -191.9, -41, -192.7, -50, -219.7, -50, -222, -49, -250, -47.4, -250, -43.4, -262, -42.2, -262, -36.2, -274, -34.7, -274, -3.8, -302, -0.300003, -302, 6.39999, -304, 56.6, -304)
+
+[node name="RightWingCollider" type="CollisionPolygon2D" parent="BodyParts/EnemyBulletDetection"]
+position = Vector2(286.046, -134.384)
+polygon = PackedVector2Array(228, -180.4, 228, -178.5, 230, -177, 230, -159.4, 227.4, -152.5, 225.5, -152.5, 215.6, -145.5, 212.3, -145.5, 195, -138.2, 195, -137.2, 188, -134.2, 177.8, -123.5, 175.5, -123.5, 156, -113.3, 156, -112.6, 111.7, -74.5, 109.5, -74.5, 95.5, -66.5, 92.4, -66.5, 77, -61.1, 65.8, -49.5, 63.4, -49.5, 47, -42.2, 47, -41.5, 34, -31.5, 34, -29.8, 8.89999, 0.5, 6.39999, 0.5, -19.6, 12.5, -32.1, 12.5, -48.3, 26.5, -50.9, 26.5, -53, 27, -53, 28.4, -64, 37.4, -64, 52.5, -65.9, 52.5, -75.9, 68.5, -77.3, 68.5, -95, 83.4, -95, 84.7, -101.4, 111.5, -102.9, 111.5, -116.8, 136.5, -118.3, 136.5, -129, 145.4, -129, 149.3, -144, 165.4, -144, 170.3, -147.2, 173.5, -153.4, 173.5, -163.9, 180.5, -216.1, 180.5, -222, 179.1, -222, 177.3, -230, 169.3, -230, 140.5, -227.7, 127.5, -226.2, 127.5, -220, 115, -220, 73.5, -218, 73.5, -198, 45, -198, 40.4, -196.8, 28.5, -194.8, 28.5, -194, 27.7, -194, 26.5, -195, -1.5, -193.5, -1.5, -186.6, -29.5, -185.2, -29.5, -175.2, -48.5, -173.9, -48.5, -150.9, -74.5, -148.7, -74.5, -126.7, -90.5, -123.4, -90.5, -120, -91.2, -110.8, -100.5, -107.3, -100.5, -80, -111.8, -80, -112.4, -58.8, -132.5, -55.3, -132.5, -40, -135.2, -40, -135.9, 11.7, -154.5, 30, -154.5, 30, -155.1, 70.8, -164.5, 76.2, -164.5, 83.6, -162.9, 91.3, -169.5, 103.5, -169.5, 111.5, -173.5, 121, -173.5, 127.4, -177.5, 132.2, -177.5, 140.4, -175.9, 149.5, -180.5, 152.8, -180.5, 225.1, -180.5)
+
+[node name="LeftWingCollider" type="CollisionPolygon2D" parent="BodyParts/EnemyBulletDetection"]
+position = Vector2(-289.362, -134.137)
+polygon = PackedVector2Array(-109.2, -170, -95.5, -170, -56.5, -169, -56.5, -167.7, 21.5, -153.7, 21.5, -152.7, 32.5, -150.7, 32.5, -149.1, 38, -146, 42.7, -146, 71.5, -139.6, 71.5, -137.8, 76.3, -133, 77.9, -133, 96.5, -124.3, 96.5, -123, 114.2, -109, 115.9, -109, 132.5, -102.4, 132.5, -100.8, 140.3, -93, 143, -93, 157.5, -85.2, 157.5, -84, 178.5, -67, 178.5, -64.6, 190.5, -47.6, 190.5, -44.5, 200.5, -25.5, 200.5, -15, 201.4, 4, 202, 4, 206, 18, 212.5, 26.4, 212.5, 29.7, 216, 41, 229.5, 49.9, 229.5, 52.4, 234.5, 59.4, 234.5, 65, 235.5, 80.5, 235.5, 82, 233.8, 82, 223.5, 104.4, 223.5, 123, 235.5, 140.4, 235.5, 159, 233.5, 159, 225.5, 169, 222.8, 169, 211.4, 174, 159.9, 174, 143.5, 166.3, 143.5, 164.8, 117.7, 138, 115.7, 138, 98.5, 122.9, 98.5, 120.7, 92.5, 113.7, 92.5, 110, 91, 105, 81.5, 94.8, 81.5, 91.4, 70.1, 62, 69.5, 62, 51.5, 36.6, 51.5, 34.4, 48.2, 27, 47.6, 27, 23.6, 1, 21.9, 1, -11.5, -20.9, -11.5, -22.2, -21.3, -32, -24.2, -32, -30.2, -37, -32.8, -37, -45.5, -40.5, -45.5, -41.8, -58.5, -48.8, -58.5, -50.3, -62.4, -55, -64.9, -55, -73.5, -58.7, -73.5, -60.2, -78.3, -65, -81.8, -65, -100.5, -70.5, -100.5, -71.9, -113.1, -80, -117.9, -80, -128.5, -84.7, -128.5, -85.8, -162.5, -102.8, -162.5, -104, -171.2, -111, -174, -111, -186, -117, -187.6, -117, -211.5, -120.3, -211.5, -121.7, -230.5, -130.7, -230.5, -132.5, -235.5, -139.6, -235.5, -158, -213.5, -174, -133.3, -174)
+
+[node name="EnemyHealthTracker" type="Node" parent="."]
+script = ExtResource("1_ehdlt")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="BodyParts/EnemyBulletDetection" to="BodyParts/EnemyBulletDetection" method="_on_body_entered"]

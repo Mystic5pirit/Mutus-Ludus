@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://taqfhqkhufqn"]
+
+[ext_resource type="FontFile" uid="uid://c3gta7hxofdj0" path="res://Yomogi-Regular.ttf" id="1_32rtx"]
+
+[resource]
+base_font = ExtResource("1_32rtx")
+variation_embolden = 0.13
+spacing_top = -6
