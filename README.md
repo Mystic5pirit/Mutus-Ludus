@@ -11,14 +11,14 @@ Itch.io link: https://mysticspirit.itch.io/mutus-ludus
 
 Screenshots:
 
-Tutorial:
+Tutorial: <br>
 ![image](https://github.com/user-attachments/assets/0162186a-14a9-4db7-b8e2-e63f4cd9fe49)
 
- Level 1:
+ Level 1:<br>
  ![image](https://github.com/user-attachments/assets/4eb30d56-a88c-47ea-9351-1b3b223b2165)
 
 
- Audio is used under CC BY-SA 3.0 DE from http://www.piano-midi.de
- Font is used under the Open Font Liscense from https://fonts.google.com/specimen/Yomogi
- Background (except the additions in the tutorial) and most enemies (all except the tutorial cannon) are from the Library of Congress's scan of _Mutus Liber_ and edited using GIMP.
+ Audio is used under CC BY-SA 3.0 DE from http://www.piano-midi.de <br>
+ Font is used under the Open Font Liscense from https://fonts.google.com/specimen/Yomogi <br>
+ Background (except the additions in the tutorial) and most enemies (all except the tutorial cannon) are from the Library of Congress's scan of _Mutus Liber_ and edited using GIMP. <br>
  Rights Reserved where otherwise applicable.
