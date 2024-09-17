@@ -1,5 +1,5 @@
 # Mutus-Ludus
- This is a game made for the Pirate Software 15 Game Jam with the prompt "Shadows and ALchemy."
+ This is a game made for the Pirate Software 15 Game Jam with the prompt "Shadows and Alchemy."
 
 This game is a platformer/bullet hell/shoot 'em up. The player plays as an animated blob of ink and the goal is to defeat the beings from the alchemical book _Mutus Liber_. 
 
@@ -10,7 +10,9 @@ The biggest thing I learned from this experience is the importance of a game des
 Itch.io link: https://mysticspirit.itch.io/mutus-ludus
 
 Screenshots:
+
 Tutorial:
+<img src="https://github.com/user-attachments/assets/0cfc7646-28b1-4c3a-9998-6f449b10ddb7" width="300" />
 ![image](https://github.com/user-attachments/assets/0cfc7646-28b1-4c3a-9998-6f449b10ddb7)
 
 
