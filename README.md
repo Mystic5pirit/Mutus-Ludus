@@ -12,10 +12,11 @@ Itch.io link: https://mysticspirit.itch.io/mutus-ludus
 Screenshots:
 
 Tutorial:
-<img src="https://github.com/user-attachments/assets/0cfc7646-28b1-4c3a-9998-6f449b10ddb7" width="300" />
+![image](https://github.com/user-attachments/assets/0162186a-14a9-4db7-b8e2-e63f4cd9fe49)
 
  Level 1:
- <img src="https://github.com/user-attachments/assets/e312c9c4-6aff-4dc3-bbad-fa98ff2303f6" width="300" allignment="top" />
+ ![image](https://github.com/user-attachments/assets/4eb30d56-a88c-47ea-9351-1b3b223b2165)
+
 
  Audio is used under CC BY-SA 3.0 DE from http://www.piano-midi.de
  Font is used under the Open Font Liscense from https://fonts.google.com/specimen/Yomogi
