@@ -5,7 +5,7 @@ This game is a platformer/bullet hell/shoot 'em up. The player plays as an anima
 
 In the case I continue working on this, I plan on finishing all of the pages in _Mutus Liber_ (approximately 15 pages).
 
-The biggest thing I learned from this experience is the importance of a game design document, the fact that art takes a while to make, and most importantly, the need to check that the right thing was submitted.
+The biggest things I learned from this experience are the importance of a game design document, the fact that art takes a while to make, and most importantly, the need to check that the right thing was submitted.
 
 Itch.io link: https://mysticspirit.itch.io/mutus-ludus
 
