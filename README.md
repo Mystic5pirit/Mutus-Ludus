@@ -10,12 +10,11 @@ The biggest thing I learned from this experience is the importance of a game des
 Itch.io link: https://mysticspirit.itch.io/mutus-ludus
 
 Screenshots:
-Tutorial:
-![image](https://github.com/user-attachments/assets/0cfc7646-28b1-4c3a-9998-6f449b10ddb7)
+Tutorial:![image](https://github.com/user-attachments/assets/0cfc7646-28b1-4c3a-9998-6f449b10ddb7)
 
- 
-Level 1:
-![image](https://github.com/user-attachments/assets/e312c9c4-6aff-4dc3-bbad-fa98ff2303f6)
+
+
+Level 1:![image](https://github.com/user-attachments/assets/e312c9c4-6aff-4dc3-bbad-fa98ff2303f6)
 
 
 
